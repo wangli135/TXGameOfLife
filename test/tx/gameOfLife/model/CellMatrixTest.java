@@ -44,7 +44,7 @@ public class CellMatrixTest {
 
 
     @Test
-    public void findNearCell() throws Exception {
+    public void findLifedNum() throws Exception {
         Assert.assertEquals(1, cellMatrix.findLifedNum(0, 0));
         Assert.assertEquals(3, cellMatrix.findLifedNum(0, 1));
         Assert.assertEquals(1, cellMatrix.findLifedNum(0, 2));

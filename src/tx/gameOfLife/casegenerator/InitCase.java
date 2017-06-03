@@ -12,6 +12,9 @@ import java.util.Random;
  */
 public class InitCase {
 
+    /**
+     * 生成文件数量
+     */
     public static final int FILE_NUM=10;
 
     public static void main(String[] args) {
@@ -25,8 +28,10 @@ public class InitCase {
 
     }
 
+    /**
+     * 创建测试案例
+     */
     private static void createCaseFile() {
-
 
         Random random = new Random();
         int rows = 1 + random.nextInt(100);
@@ -65,6 +70,5 @@ public class InitCase {
         }
 
     }
-
 
 }
