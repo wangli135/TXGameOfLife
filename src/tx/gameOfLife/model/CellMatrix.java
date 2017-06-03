@@ -31,12 +31,15 @@ public class CellMatrix {
      */
     private int[][] matrix;
 
+    private int[][] nextMatrix;
+
     public CellMatrix(int height, int width, int duration, int transfromNum, int[][] matrix) {
         this.height = height;
         this.width = width;
         this.duration = duration;
         this.transfromNum = transfromNum;
         this.matrix = matrix;
+        this.nextMatrix=matrix;
     }
 
     /**
@@ -46,9 +49,10 @@ public class CellMatrix {
      * 2. 对于周围活着的细胞为2的情况,下一个状态与上一状态相同
      */
     public void transform(){
-          int[][] nextMatrix=new int[height][width];
+        int[][] nextMatrix=new int[height][width];
         for (int y = 0; y < matrix.length; y++) {
             for (int x = 0; x < matrix[0].length; x++) {
+                nextMatrix[y][x]=0;
                 int nearNum= findLifedNum(y,x);
                 //等于3，则下一状态总是活
                 if(nearNum==3){
