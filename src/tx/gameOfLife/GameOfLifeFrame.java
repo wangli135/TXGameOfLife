@@ -55,9 +55,8 @@ public class GameOfLifeFrame extends JFrame {
         buttonPanel.setBackground(Color.WHITE);
 
         getContentPane().add("North", buttonPanel);
-        getContentPane().add("Center", gridPanel);
 
-        this.setSize(1000, 1000);
+        this.setSize(1000, 1200);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -71,14 +70,20 @@ public class GameOfLifeFrame extends JFrame {
             fcDlg.setDialogTitle("请选择初始配置文件");
             int returnVal = fcDlg.showOpenDialog(null);
             if (returnVal == JFileChooser.APPROVE_OPTION) {
+
+                isStart = false;
+                stop = true;
+                startGameBtn.setText("开始游戏");
+
                 String filepath = fcDlg.getSelectedFile().getPath();
                 cellMatrix = Utils.initMatrixFromFile(filepath);
                 initGridLayout();
                 showMatrix();
                 gridPanel.updateUI();
-
             }
         }
+
+
     }
 
     private void showMatrix() {
@@ -101,6 +106,7 @@ public class GameOfLifeFrame extends JFrame {
     private void initGridLayout() {
         int rows = cellMatrix.getHeight();
         int cols = cellMatrix.getWidth();
+        gridPanel = new JPanel();
         gridPanel.setLayout(new GridLayout(rows, cols));
         textMatrix = new JTextField[rows][cols];
         for (int y = 0; y < rows; y++) {
@@ -110,7 +116,7 @@ public class GameOfLifeFrame extends JFrame {
                 gridPanel.add(text);
             }
         }
-
+        add("Center", gridPanel);
     }
 
 
