@@ -10,7 +10,7 @@ import org.junit.Test;
 public class CellMatrixTest {
 
     CellMatrix cellMatrix = null;
-    String path = "D:\\学习\\wx_devlop\\TXGameOfLife\\initMatrix.txt";
+    String path = "D:\\学习\\wx_devlop\\TXGameOfLife\\test.case";
 
     @Before
     public void init() {
@@ -20,11 +20,26 @@ public class CellMatrixTest {
     @Test
     public void transform() throws Exception {
 
-        System.out.println(cellMatrix);
+        int[][] expected = new int[][]{
+                {1, 0, 1},
+                {0, 1, 0},
+                {1, 1, 1}
+        };
+        Assert.assertArrayEquals(expected, cellMatrix.getMatrix());
         cellMatrix.transform();
-        System.out.println(cellMatrix);
+        expected = new int[][]{
+                {0, 1, 0},
+                {0, 0, 0},
+                {1, 1, 1}
+        };
+        Assert.assertArrayEquals(expected, cellMatrix.getMatrix());
         cellMatrix.transform();
-        System.out.println(cellMatrix);
+        expected = new int[][]{
+                {0, 0, 0},
+                {1, 0, 1},
+                {0, 1, 0}
+        };
+        Assert.assertArrayEquals(expected, cellMatrix.getMatrix());
     }
 
 
@@ -32,13 +47,13 @@ public class CellMatrixTest {
     public void findNearCell() throws Exception {
         Assert.assertEquals(1, cellMatrix.findLifedNum(0, 0));
         Assert.assertEquals(3, cellMatrix.findLifedNum(0, 1));
-        Assert.assertEquals(2, cellMatrix.findLifedNum(0, 2));
-        Assert.assertEquals(1, cellMatrix.findLifedNum(0, 3));
-        Assert.assertEquals(2, cellMatrix.findLifedNum(1, 1));
+        Assert.assertEquals(1, cellMatrix.findLifedNum(0, 2));
+        Assert.assertEquals(4, cellMatrix.findLifedNum(1, 0));
+        Assert.assertEquals(5, cellMatrix.findLifedNum(1, 1));
         Assert.assertEquals(4, cellMatrix.findLifedNum(1, 2));
-        Assert.assertEquals(3, cellMatrix.findLifedNum(1, 3));
-        Assert.assertEquals(1, cellMatrix.findLifedNum(2, 0));
-        Assert.assertEquals(0, cellMatrix.findLifedNum(2, 3));
+        Assert.assertEquals(2, cellMatrix.findLifedNum(2, 0));
+        Assert.assertEquals(3, cellMatrix.findLifedNum(2, 1));
+        Assert.assertEquals(2, cellMatrix.findLifedNum(2, 2));
     }
 
 }
