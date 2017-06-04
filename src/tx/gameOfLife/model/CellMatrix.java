@@ -31,15 +31,12 @@ public class CellMatrix {
      */
     private int[][] matrix;
 
-    private int[][] nextMatrix;
-
     public CellMatrix(int height, int width, int duration, int transfromNum, int[][] matrix) {
         this.height = height;
         this.width = width;
         this.duration = duration;
         this.transfromNum = transfromNum;
         this.matrix = matrix;
-        this.nextMatrix=matrix;
     }
 
     /**

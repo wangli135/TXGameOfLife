@@ -1,7 +1,7 @@
-package tx.gameOfLife;
+package tx.gameOfLife.ui;
 
 import tx.gameOfLife.model.CellMatrix;
-import tx.gameOfLife.model.Utils;
+import tx.gameOfLife.util.Utils;
 
 import javax.swing.*;
 import java.awt.*;

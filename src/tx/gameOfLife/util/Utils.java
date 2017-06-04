@@ -1,4 +1,6 @@
-package tx.gameOfLife.model;
+package tx.gameOfLife.util;
+
+import tx.gameOfLife.model.CellMatrix;
 
 import java.io.*;
 

@@ -3,6 +3,7 @@ package tx.gameOfLife.model;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import tx.gameOfLife.util.Utils;
 
 /**
  * Created by mjh on 2017/6/3.
